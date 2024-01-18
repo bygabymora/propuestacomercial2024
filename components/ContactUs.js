@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
 import Banner from '../public/images/banner.png';
 import Image from 'next/image';
