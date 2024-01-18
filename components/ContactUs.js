@@ -28,7 +28,7 @@ const ContactUs = () => {
         empresa: company,
         email: email,
       });
-      sendEmail(e);
+
       form.current.reset();
       toast.success('');
       // Una vez enviado el correo, redirigir a WhatsApp
@@ -39,30 +39,9 @@ const ContactUs = () => {
       setPhone('');
       setCity('');
       setCompany('');
-      setEmail('');
     } catch (err) {
       toast.error(getError(err));
     }
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        'service_2tj30li',
-        'template_becy6jh',
-        form.current,
-        '7QVSeaXEWwasg-dAM'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
   };
 
   const redirectToWhatsApp = () => {
