@@ -75,7 +75,7 @@ const ContactUs = () => {
         <Image src={Banner} alt="Moraequipos" />
       </div>
       <div className="md:flex justify-center items-center w-full pt-5 pb-2 leading-tight hidden ">
-        <Image src={Banner} alt="Moraequipos" />
+        <Image src={Banner2} alt="Moraequipos" />
       </div>
 
       <h3 className="contact__title">Por favor ingresa tus datos</h3>
