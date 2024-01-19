@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <RootLayout title="Formulario Medellín 2023">
       <main className="">
-        <div className="contact__container container">
+        <div className="">
           <ContactUs />
         </div>
       </main>

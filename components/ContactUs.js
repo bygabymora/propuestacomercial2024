@@ -56,6 +56,7 @@ const ContactUs = () => {
       setDeseaRecibirOferta('true');
       setCondicionesDeseadas('');
       setContactoTelefonico('true');
+      router.push('/gracias');
     } catch (err) {
       toast.error(getError(err));
     }
@@ -68,7 +69,7 @@ const ContactUs = () => {
   const tab = <>&nbsp;&nbsp;</>;
 
   return (
-    <div className=" p-3 mr-4 md:mr-8 text-center">
+    <div className=" m-x2 text-center  bg-gray-50 p-4">
       <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
         <Image src={Banner} alt="Moraequipos" />
       </div>
