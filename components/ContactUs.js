@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Banner from '../public/images/banner.svg';
-import Banner2 from '../public/images/banner2.svg';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error.js';
 import axios from 'axios';
@@ -71,11 +70,8 @@ const ContactUs = () => {
 
   return (
     <div className=" m-x2 text-center  bg-gray-50 p-4">
-      <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight md:hidden">
+      <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
         <Image src={Banner} alt="Moraequipos" />
-      </div>
-      <div className="md:flex justify-center items-center w-full pt-5 pb-2 leading-tight hidden ">
-        <Image src={Banner2} alt="Moraequipos" />
       </div>
 
       <h3 className="contact__title">Por favor ingresa tus datos</h3>
