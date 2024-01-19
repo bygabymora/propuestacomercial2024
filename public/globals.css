@@ -253,7 +253,6 @@ img {
 
 .contact__form-div {
   position: relative;
-  margin-bottom: var(--mb-2);
   height: auto;
   width: 100%;
 }
