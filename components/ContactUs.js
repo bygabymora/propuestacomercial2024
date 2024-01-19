@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Banner from '../public/images/banner.png';
+import Banner from '../public/images/banner.svg';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error.js';
 import axios from 'axios';
@@ -69,7 +69,10 @@ const ContactUs = () => {
 
   return (
     <div className=" p-3 mr-4 md:mr-8 text-center">
-      <Image src={Banner} alt="Moraequipos"></Image>
+      <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
+        <Image src={Banner} alt="Moraequipos" />
+      </div>
+
       <h3 className="contact__title">Por favor ingresa tus datos</h3>
       <form
         className=""
