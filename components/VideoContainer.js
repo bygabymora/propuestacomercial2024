@@ -18,7 +18,9 @@ const VideoContainer = () => {
 
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
-      <main className="items-center justify-center flex">
+      <main className="flex flex-col items-center justify-center h-screen">
+        {' '}
+        {/* Adjusted here */}
         <div className="w-[80%] lg:w-[60%]">
           <CldVideoPlayer
             videoRef={videoRef}
