@@ -5,6 +5,7 @@ import Banner from '../public/images/banner.svg';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error.js';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
   const form = useRef();
@@ -15,12 +16,12 @@ const ContactUs = () => {
   const [telefono, setTelefono] = useState('');
   const [ciudad, setCiudad] = useState('');
   const [cantidadDeAnalizadores, setCantidadDeAnalizadores] = useState(0);
-  const [consciente, setConsciente] = useState('true');
-  const [hayCiudades, setHayCiudades] = useState('true');
+  const [consciente, setConsciente] = useState('Sí');
+  const [hayCiudades, setHayCiudades] = useState('Sí');
   const [ciudadEspecial, setCiudadEspecial] = useState('');
-  const [deseaRecibirOferta, setDeseaRecibirOferta] = useState('true');
+  const [deseaRecibirOferta, setDeseaRecibirOferta] = useState('Sí');
   const [condicionesDeseadas, setCondicionesDeseadas] = useState('');
-  const [contactoTelefonico, setContactoTelefonico] = useState('true');
+  const [contactoTelefonico, setContactoTelefonico] = useState('Sí');
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -56,17 +57,50 @@ const ContactUs = () => {
       setDeseaRecibirOferta('true');
       setCondicionesDeseadas('');
       setContactoTelefonico('true');
-      router.push('/gracias');
+      setTimeout(() => {
+        router.push('/gracias');
+      }, 2000);
     } catch (err) {
       toast.error(getError(err));
     }
   };
 
+  const sendEmail = () => {
+    const formData = new FormData();
+
+    formData.append('user_name', nombre);
+    formData.append('user_email', email);
+    formData.append('user_company', empresa);
+    formData.append('user_phone', telefono);
+    formData.append('user_city', ciudad);
+    formData.append('user_quantity', cantidadDeAnalizadores);
+    formData.append('consciente', consciente);
+    formData.append('hayCiudades', hayCiudades);
+    formData.append('special_city', ciudadEspecial);
+    formData.append('deseaRecibirOferta', deseaRecibirOferta);
+    formData.append('condicionesDeseadas', condicionesDeseadas);
+    formData.append('contactoTelefonico', contactoTelefonico);
+
+    emailjs
+      .sendForm(
+        'service_grtjjzp',
+        'template_nqt1u2d',
+        form.current,
+        'LuJZSocJe5a_St7dQ'
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
-  const tab = <>&nbsp;&nbsp;</>;
 
   return (
     <div className=" m-x2 text-center  bg-gray-50 p-4">
@@ -84,11 +118,12 @@ const ContactUs = () => {
         ref={form}
         onSubmit={(e) => {
           submitHandler(e);
+          sendEmail();
         }}
       >
         <div className="w-full px-3 pt-5 grid grid-cols-1 md:grid-cols-6 pb-2 leading-tight border rounded shadow ">
           <div className="contact__form-div mb-3">
-            <label className="contact__form-tag">Nombre*</label>
+            <label className="contact__form-tag  bg-gray-50 p-4">Nombre*</label>
             <input
               type="text"
               name="user_name"
@@ -99,7 +134,7 @@ const ContactUs = () => {
             />
           </div>
           <div className="contact__form-div mb-3">
-            <label className="contact__form-tag">Teléfono*</label>
+            <label className="contact__form-tag  bg-gray-50">Teléfono*</label>
             <input
               type="text"
               name="user_phone"
@@ -110,7 +145,7 @@ const ContactUs = () => {
             />
           </div>
           <div className="contact__form-div mb-3">
-            <label className="contact__form-tag">Ciudad*</label>
+            <label className="contact__form-tag  bg-gray-50">Ciudad*</label>
             <input
               type="text"
               name="user_city"
@@ -122,7 +157,7 @@ const ContactUs = () => {
           </div>
 
           <div className="contact__form-div mb-3">
-            <label className="contact__form-tag ">Empresa*</label>
+            <label className="contact__form-tag  bg-gray-50 ">Empresa*</label>
             <input
               type="text"
               name="user_company"
@@ -132,7 +167,7 @@ const ContactUs = () => {
             />
           </div>
           <div className="contact__form-div mb-3 col-span-1 md:col-span-2">
-            <label className="contact__form-tag">Email*</label>
+            <label className="contact__form-tag  bg-gray-50">Email*</label>
             <input
               type="email"
               name="user_email"
@@ -176,9 +211,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="consciente"
-                    value="true"
-                    checked={consciente === 'true'}
-                    onChange={() => setConsciente('true')}
+                    value="Sí"
+                    checked={consciente === 'Sí'}
+                    onChange={() => setConsciente('Sí')}
                   />{' '}
                   Sí
                 </div>
@@ -186,9 +221,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="consciente"
-                    value="false"
-                    checked={consciente === 'false'}
-                    onChange={() => setConsciente('false')}
+                    value="No"
+                    checked={consciente === 'No'}
+                    onChange={() => setConsciente('No')}
                   />{' '}
                   No
                 </div>
@@ -206,9 +241,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="hayCiudades"
-                    value="true"
-                    checked={hayCiudades === 'true'}
-                    onChange={() => setHayCiudades('true')}
+                    value="Sí"
+                    checked={hayCiudades === 'Sí'}
+                    onChange={() => setHayCiudades('Sí')}
                   />{' '}
                   Sí
                 </div>
@@ -216,9 +251,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="hayCiudades"
-                    value="false"
-                    checked={hayCiudades === 'false'}
-                    onChange={() => setHayCiudades('false')}
+                    value="No"
+                    checked={hayCiudades === 'No '}
+                    onChange={() => setHayCiudades('No')}
                   />{' '}
                   No
                 </div>
@@ -246,9 +281,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="deseaRecibirOferta"
-                    value="true"
-                    checked={deseaRecibirOferta === 'true'}
-                    onChange={() => setDeseaRecibirOferta('true')}
+                    value="Sí"
+                    checked={deseaRecibirOferta === 'Sí'}
+                    onChange={() => setDeseaRecibirOferta('Sí')}
                   />{' '}
                   Sí
                 </div>
@@ -256,9 +291,9 @@ const ContactUs = () => {
                   <input
                     type="radio"
                     name="deseaRecibirOferta"
-                    value="false"
-                    checked={deseaRecibirOferta === 'false'}
-                    onChange={() => setDeseaRecibirOferta('false')}
+                    value="No"
+                    checked={deseaRecibirOferta === 'No'}
+                    onChange={() => setDeseaRecibirOferta('No')}
                   />{' '}
                   No
                 </div>
@@ -266,35 +301,6 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="w-full px-3 py-2 flex flex-col gap-2 mt-2 leading-tight border rounded shadow">
-            <div className="w-full px-3 py-2 my-2 leading-tight border rounded shadow h-[100%] ">
-              <label className="">
-                ¿Desea que le contactemos telefónicamente o personalmente para
-                analizar los temas de una posible alianza comercial entre
-                nuestras empresas?
-              </label>
-              <div className="flex flex-col gap-2 mt-2">
-                <div>
-                  <input
-                    type="radio"
-                    name="contactoTelefonico"
-                    value="true"
-                    checked={contactoTelefonico === 'true'}
-                    onChange={() => setContactoTelefonico('true')}
-                  />{' '}
-                  Sí
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    name="contactoTelefonico"
-                    value="false"
-                    checked={contactoTelefonico === 'false'}
-                    onChange={() => setContactoTelefonico('false')}
-                  />{' '}
-                  No
-                </div>
-              </div>
-            </div>
             <div className="w-full px-3 py-2 my-2 leading-tight border rounded shadow h-[100%] ">
               <label className="">
                 ¿Cuáles son las condiciones que usted desearía para una alianza
@@ -306,6 +312,35 @@ const ContactUs = () => {
                 value={condicionesDeseadas}
                 onChange={(e) => setCondicionesDeseadas(e.target.value)}
               />
+            </div>
+            <div className="w-full px-3 py-2 my-2 leading-tight border rounded shadow h-[100%] ">
+              <label className="">
+                ¿Desea que le contactemos telefónicamente o personalmente para
+                analizar los temas de una posible alianza comercial entre
+                nuestras empresas?
+              </label>
+              <div className="flex flex-col gap-2 mt-2">
+                <div>
+                  <input
+                    type="radio"
+                    name="contactoTelefonico"
+                    value="Sí"
+                    checked={contactoTelefonico === 'Sí'}
+                    onChange={() => setContactoTelefonico('Sí')}
+                  />{' '}
+                  Sí
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="contactoTelefonico"
+                    value="No"
+                    checked={contactoTelefonico === 'No'}
+                    onChange={() => setContactoTelefonico('No')}
+                  />{' '}
+                  No
+                </div>
+              </div>
             </div>
           </div>
         </div>
