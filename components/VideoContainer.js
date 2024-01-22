@@ -1,15 +1,16 @@
 import React from 'react';
 import RootLayout from '../components/layout';
-import Link from 'next/link';
 import { CldVideoPlayer } from 'next-cloudinary';
 
 const VideoContainer = () => {
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
-      <main className="mb-3 p-3 items-center justify-center flex">
+      <main className="items-center justify-center flex">
         <div className="w-[80%] lg:w-[60%]">
           <CldVideoPlayer
             id="propuestaComercial2024"
+            autoplayMode="on-scroll"
+            autoplay={true}
             width="960"
             height="544"
             className="rounded-lg shadow-2xl"
