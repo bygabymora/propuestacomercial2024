@@ -1,18 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../components/layout';
 import { CldVideoPlayer } from 'next-cloudinary';
 
 const VideoContainer = () => {
   const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play();
     }
     setTimeout(() => {
-      videoRef.current.muted = false;
-    }, 3000);
-  }, []);
+      setIsMuted(false);
+      videoRef.current.muted = isMuted;
+    }, 10000);
+  }, [isMuted]);
 
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
@@ -21,9 +23,8 @@ const VideoContainer = () => {
           <CldVideoPlayer
             videoRef={videoRef}
             id="propuestaComercial2024"
-            autoplayMode="always"
+            autoplayMode="on-scroll"
             autoplay={true}
-            muted={true}
             width="960"
             height="544"
             className="rounded-lg shadow-2xl"
@@ -41,6 +42,7 @@ const VideoContainer = () => {
             }}
             fontFace="Source Serif Pro"
           />
+          {console.log('muted', isMuted)}
         </div>
       </main>
     </RootLayout>
