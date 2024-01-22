@@ -1,14 +1,40 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../components/layout';
 import Image from 'next/image';
 import Banner from '../public/images/banner.svg';
+import { FaCirclePlay } from 'react-icons/fa6';
 
 const VideoContainer = () => {
   const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
+  };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play();
+    const videoElement = videoRef.current;
+
+    if (videoElement) {
+      const handlePlay = () => setIsPlaying(true);
+      const handlePause = () => setIsPlaying(false);
+
+      videoElement.addEventListener('play', handlePlay);
+      videoElement.addEventListener('pause', handlePause);
+
+      // Optional: Autoplay the video on load
+      videoElement.play();
+
+      return () => {
+        videoElement.removeEventListener('play', handlePlay);
+        videoElement.removeEventListener('pause', handlePause);
+      };
     }
   }, []);
 
@@ -29,6 +55,12 @@ const VideoContainer = () => {
           >
             <source src="/images/PropuestaComercial.mp4" type="video/mp4" />
           </video>
+          {!isPlaying && (
+            <FaCirclePlay
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[10rem] text-[#8b1414] cursor-pointer "
+              onClick={togglePlay}
+            />
+          )}
         </div>
       </main>
     </RootLayout>
