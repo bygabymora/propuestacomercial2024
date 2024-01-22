@@ -57,7 +57,7 @@ const VideoContainer = () => {
           </video>
           {!isPlaying && (
             <FaCirclePlay
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[5rem] md:text-[10rem] text-[#8b1414] cursor-pointer "
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block text-[10rem] text-[#8b1414] cursor-pointer opacity-70"
               onClick={togglePlay}
             />
           )}
