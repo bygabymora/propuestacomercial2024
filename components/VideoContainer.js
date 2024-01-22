@@ -14,7 +14,7 @@ const VideoContainer = () => {
             width="960"
             height="544"
             className="rounded-lg shadow-2xl"
-            src="https://res.cloudinary.com/do6oloxvt/video/upload/f_mp4,q_auto:best,sp_full_hd_lean/v1705932446/Moraequipos/PropuestaComercial2024.mp4"
+            src="https://res.cloudinary.com/do6oloxvt/video/upload/v1705937177/Moraequipos/WhatsApp_Video_2024-01-18_at_5.34.03_PM_xgoczs.mp4"
             logo={{
               imageUrl:
                 'https://res.cloudinary.com/do6oloxvt/image/upload/v1705929454/Moraequipos/Moraequipos_minilogo.png',
