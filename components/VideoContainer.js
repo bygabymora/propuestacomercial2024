@@ -11,6 +11,7 @@ const VideoContainer = () => {
             id="propuestaComercial2024"
             autoplayMode="always"
             autoplay={true}
+            muted={true}
             width="960"
             height="544"
             className="rounded-lg shadow-2xl"
