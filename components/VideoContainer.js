@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import RootLayout from '../components/layout';
 import { CldVideoPlayer } from 'next-cloudinary';
 
 const VideoContainer = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+    setTimeout(() => {
+      videoRef.current.muted = false;
+    }, 3000);
+  }, []);
+
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
       <main className="items-center justify-center flex">
         <div className="w-[80%] lg:w-[60%]">
           <CldVideoPlayer
+            videoRef={videoRef}
             id="propuestaComercial2024"
             autoplayMode="always"
             autoplay={true}
