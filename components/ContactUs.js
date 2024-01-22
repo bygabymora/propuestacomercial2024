@@ -71,7 +71,11 @@ const ContactUs = () => {
   return (
     <div className=" m-x2 text-center  bg-gray-50 p-4">
       <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
-        <Image src={Banner} alt="Moraequipos" />
+        <Image
+          src={Banner}
+          alt="Moraequipos"
+          className="rounded-lg w-[90%] md:w-[50%]"
+        />
       </div>
 
       <h3 className="contact__title">Por favor ingresa tus datos</h3>

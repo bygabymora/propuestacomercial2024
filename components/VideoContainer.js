@@ -17,7 +17,7 @@ const VideoContainer = () => {
       <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
         <Image src={Banner} alt="Moraequipos" className="rounded-lg w-[90%]" />
       </div>
-      <main className="flex flex-col items-center sm:mt-10 justify-center h-[65vh] md:h-[70vh] md:mt-5">
+      <main className="flex flex-col items-center sm:mt-10 justify-center h-[65vh] md:h-[75vh] md:mt-5">
         <div className="w-[90%] sm:w-[55%] md:w-[60%] relative">
           <video
             ref={videoRef}
