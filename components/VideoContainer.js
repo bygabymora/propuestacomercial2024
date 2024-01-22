@@ -10,17 +10,11 @@ const VideoContainer = () => {
     if (videoRef.current) {
       videoRef.current.play();
     }
-    setTimeout(() => {
-      setIsMuted(false);
-      videoRef.current.muted = isMuted;
-    }, 10000);
   }, [isMuted]);
 
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
       <main className="flex flex-col items-center justify-center h-screen">
-        {' '}
-        {/* Adjusted here */}
         <div className="w-[80%] lg:w-[60%]">
           <CldVideoPlayer
             videoRef={videoRef}
