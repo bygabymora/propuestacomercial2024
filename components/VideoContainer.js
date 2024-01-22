@@ -9,7 +9,7 @@ const VideoContainer = () => {
         <div className="w-[80%] lg:w-[60%]">
           <CldVideoPlayer
             id="propuestaComercial2024"
-            autoplayMode="on-scroll"
+            autoplayMode="always"
             autoplay={true}
             width="960"
             height="544"
