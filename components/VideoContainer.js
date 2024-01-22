@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import RootLayout from '../components/layout';
+import Image from 'next/image';
+import Banner from '../public/images/banner.svg';
 
 const VideoContainer = () => {
+  const videoRef = useRef(null); // Create a ref for the video player
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play(); // Attempt to play the video when the component mounts
+    }
+  }, []);
+
   return (
     <RootLayout title="Formulario Propuesta Comercial 2024">
-      <main className="flex flex-col items-center justify-center h-[80vh]">
-        <div className="w-[80%] lg:w-[60%] relative">
+      <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
+        <Image src={Banner} alt="Moraequipos" className="rounded-lg w-[90%]" />
+      </div>
+      <main className="flex flex-col items-center sm:mt-10 justify-center h-[65vh] md:h-[70vh] md:mt-5">
+        <div className="w-[90%] sm:w-[55%] md:w-[60%] relative">
           <video
+            ref={videoRef}
             id="propuestaComercial2024"
             width="960"
             height="544"
