@@ -1,18 +1,22 @@
 import React from 'react';
 import RootLayout from '../components/layout';
 import Link from 'next/link';
+import VideoContainer from '../components/VideoContainer';
 
 export default function Home() {
   return (
     <RootLayout title="Formulario Medellín 2023">
       <main className="">
-        <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
-          <Link
-            href="/formulario"
-            className="button button--flex btn-contact mt-3"
-          >
-            PAGINA DEL FORMULARIO
-          </Link>
+        <div className="justify-center items-center w-full pt-2 pb-2 leading-tight ">
+          <VideoContainer />
+          <div className="m-3 p-3 items-center justify-center flex">
+            <Link
+              href="/formulario"
+              className="button button--flex btn-contact mt-3"
+            >
+              NOS GUSTARÍA CONOCER SUS NECESIDADES
+            </Link>
+          </div>
         </div>
       </main>
     </RootLayout>
