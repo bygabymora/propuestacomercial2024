@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Banner from '../public/images/banner.svg';
 
 const VideoContainer = () => {
-  const videoRef = useRef(null); // Create a ref for the video player
+  const videoRef = useRef(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play(); // Attempt to play the video when the component mounts
+      videoRef.current.play();
     }
   }, []);
 
