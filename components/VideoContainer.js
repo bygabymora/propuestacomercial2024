@@ -51,6 +51,7 @@ const VideoContainer = () => {
             width="960"
             height="544"
             className="rounded-lg shadow-xl"
+            volume="0.7"
             controls
           >
             <source src="/images/PropuestaComercial.mp4" type="video/mp4" />
