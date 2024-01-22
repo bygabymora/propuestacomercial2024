@@ -29,7 +29,7 @@ const VideoContainer = () => {
             autoplay={true}
             width="960"
             height="544"
-            className="rounded-lg shadow-2xl"
+            className="rounded-lg shadow-xl"
             src="https://res.cloudinary.com/do6oloxvt/video/upload/v1705937177/Moraequipos/WhatsApp_Video_2024-01-18_at_5.34.03_PM_xgoczs.mp4"
             logo={{
               imageUrl:
