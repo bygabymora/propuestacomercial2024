@@ -14,5 +14,11 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      display: ['md:landscape'],
+    },
+  },
+
   plugins: [],
-}
+};

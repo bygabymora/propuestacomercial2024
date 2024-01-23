@@ -312,3 +312,8 @@ img {
 .contact__form-area textarea {
   resize: none;
 }
+@media screen and (max-width: 1025px) and (max-height: 550px) {
+  .hide-on-mobile-landscape {
+    display: none;
+  }
+}
