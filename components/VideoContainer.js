@@ -77,7 +77,7 @@ const VideoContainer = () => {
         />
       </div>
       <main className="flex flex-col items-center justify-center h-[65vh] md:h-[75vh] md:mt-5 lg:h-[80vh]">
-        <div className="max-w-xl mx-auto w-full mt-2 pt-2 relative lg:max-w-4xl">
+        <div className="max-w-xl mx-auto w-full mt-2 pt-2 px-2 relative lg:max-w-4xl">
           <video
             ref={videoRef}
             id="propuestaComercial2024"
