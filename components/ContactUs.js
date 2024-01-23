@@ -112,7 +112,7 @@ const ContactUs = () => {
         />
       </div>
 
-      <h3 className="contact__title">Por favor ingresa tus datos</h3>
+      <h3 className="contact__title">Por favor ingrese sus datos</h3>
       <form
         className=""
         ref={form}
