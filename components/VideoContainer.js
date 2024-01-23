@@ -52,25 +52,11 @@ const VideoContainer = () => {
       videoElement.addEventListener('play', handlePlay);
       videoElement.addEventListener('pause', handlePause);
 
-      // Optional: Autoplay the video on load
-      videoElement
-        .play()
-        .then(() => {
-          // After the video starts playing, request full screen
-          if (videoElement.requestFullscreen) {
-            videoElement.requestFullscreen();
-          } else if (videoElement.webkitRequestFullscreen) {
-            /* Safari */
-            videoElement.webkitRequestFullscreen();
-          } else if (videoElement.msRequestFullscreen) {
-            /* IE11 */
-            videoElement.msRequestFullscreen();
-          }
-        })
-        .catch((err) => {
-          // Autoplay was likely prevented by the browser
-          console.log('Autoplay was prevented');
-        });
+      // Optional: Attempt to autoplay the video on load
+      videoElement.play().catch((err) => {
+        // Handle the case where autoplay was prevented by the browser
+        console.log('Autoplay was prevented', err);
+      });
 
       return () => {
         videoElement.removeEventListener('play', handlePlay);
@@ -96,7 +82,7 @@ const VideoContainer = () => {
             ref={videoRef}
             id="propuestaComercial2024"
             className="w-full h-auto rounded-lg shadow-xl"
-            volume="0.7"
+            volume="0.8"
             controls
           >
             <source src="/images/PropuestaComercial.mp4" type="video/mp4" />
