@@ -14,7 +14,7 @@ export default function Home() {
               href="/formulario"
               className="button button--flex btn-contact mt-3"
             >
-              NOS GUSTARÍA CONOCER SUS NECESIDADES
+              CUÉNTENOS CUALES SON SUS EXPECTATIVAS
             </Link>
           </div>
         </div>

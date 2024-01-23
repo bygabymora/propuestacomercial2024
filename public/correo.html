@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        background-image: url('https://res.cloudinary.com/do6oloxvt/image/upload/v1706022985/Email_Descubra_Nuestra_propuesta_1_yililk.png');
+        height: 500px;
+        width: auto;
+        content: '';
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Coloca el fondo detrás de todo el contenido */
+        display: grid;
+        grid-template-rows: repeat(5, 1fr); /* 5 filas de igual altura */
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+      }
+
+      .header-banner {
+        text-align: center;
+        grid-row: 1 / span 3; /* Ocupa 2 filas */
+        grid-column: 1 / span 5; /* Ocupa 2 columnas */
+      }
+      .link-button,
+      .whatsapp-icon {
+        position: relative;
+        cursor: pointer;
+      }
+      .link-button {
+        grid-row: 3; /* En la tercera fila */
+        grid-column: 3; /* En la primera columna */
+        justify-self: center; /* Centra horizontalmente */
+      }
+      .whatsapp-icon {
+        grid-row: 4; /* En la tercera fila */
+        grid-column: 3; /* En la segunda columna */
+        justify-self: center; /* Centra horizontalmente */
+      }
+      .email-table {
+        width: 600px;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <!-- Enlace del botón -->
+      <a href="https://propuestacomercial2024.vercel.app/" class="link-button">
+        <img
+          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706016201/boton_consulta_fpwkuh.png"
+          alt="Consulta la propuesta"
+          style="width: 100%"
+        />
+      </a>
+
+      <!-- Enlace del ícono de WhatsApp -->
+      <a href="https://wa.me/3202193192" class="whatsapp-icon">
+        <img
+          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706016346/WhatsApp_u3dgvj.png"
+          alt="WhatsApp"
+          style="width: 100%"
+        />
+      </a>
+    </div>
+  </body>
+</html>
