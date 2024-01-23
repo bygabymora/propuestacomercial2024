@@ -67,21 +67,21 @@ const VideoContainer = () => {
 
   return (
     <RootLayout title="Propuesta Comercial 2024">
-      <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
-        <Image
-          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706031027/2_vprbeq.png"
-          alt="Moraequipos"
-          className="rounded-lg w-[90%]"
-          width={600}
-          height={320}
-        />
-      </div>
-      <main className="flex flex-col items-center justify-center h-[65vh] md:h-[75vh] md:mt-5 lg:h-[80vh]">
-        <div className="max-w-xl mx-auto w-full mt-2 pt-2 px-2 relative lg:max-w-4xl">
+      <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-2 md:mt-5">
+        <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
+          <Image
+            src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706051172/VISI%C3%93N_2024_1_dwu2q1.png"
+            alt="Moraequipos"
+            className="rounded-lg w-[90%]"
+            width={600}
+            height={320}
+          />
+        </div>
+        <div className="flex justify-center items-center leading-tight max-w-xl mx-auto w-full pt-2 px-2 relative lg:max-w-4xl">
           <video
             ref={videoRef}
             id="propuestaComercial2024"
-            className="w-full h-auto rounded-lg shadow-xl"
+            className="md:w-full h-auto rounded-lg shadow-xl w-[90%]"
             volume="0.8"
             controls
           >
