@@ -47,17 +47,14 @@ const VideoContainer = () => {
           className="rounded-lg w-[90%]"
           width={600}
           height={320}
-          layout="responsive"
         />
       </div>
-      <main className="flex flex-col items-center sm:mt-10 justify-center h-[65vh] md:h-[75vh] md:mt-5">
-        <div className="w-[90%] sm:w-[55%] md:w-[60%] relative">
+      <main className="flex flex-col items-center justify-center h-[65vh] md:h-[75vh] md:mt-5">
+        <div className="max-w-3xl mx-auto w-full p-4">
           <video
             ref={videoRef}
             id="propuestaComercial2024"
-            width="960"
-            height="544"
-            className="rounded-lg shadow-xl"
+            className="w-full h-auto rounded-lg shadow-xl"
             volume="0.7"
             controls
           >
@@ -65,7 +62,7 @@ const VideoContainer = () => {
           </video>
           {!isPlaying && (
             <FaCirclePlay
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block text-[10rem] text-[#8b1414] cursor-pointer opacity-70"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[10rem] text-[#8b1414] cursor-pointer opacity-70"
               onClick={togglePlay}
             />
           )}
