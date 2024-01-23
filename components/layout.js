@@ -10,7 +10,7 @@ export default function RootLayout({ title, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>{children}</main>
+      <main className=" bg-gray-50">{children}</main>
     </>
   );
 }

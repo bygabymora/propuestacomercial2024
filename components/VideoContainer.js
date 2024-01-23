@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import RootLayout from '../components/layout';
 import Image from 'next/image';
-import Banner from '../public/images/banner.svg';
 import { FaCirclePlay } from 'react-icons/fa6';
 
 const VideoContainer = () => {
