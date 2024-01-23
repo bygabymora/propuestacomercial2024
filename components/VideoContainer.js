@@ -81,7 +81,7 @@ const VideoContainer = () => {
           <video
             ref={videoRef}
             id="propuestaComercial2024"
-            className="md:w-full h-auto rounded-lg shadow-xl w-[90%]"
+            className="2xl:w-full h-auto rounded-lg shadow-xl w-[90%] lg:w-[80%]"
             volume="0.8"
             controls
           >

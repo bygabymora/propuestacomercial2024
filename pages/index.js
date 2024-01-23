@@ -15,7 +15,11 @@ export default function Home() {
           {/* Button container */}
           <div className="fixed bottom-0 left-0 w-full p-2 flex justify-center items-center sm:relative sm:bottom-auto sm:w-auto sm:bg-transparent hide-on-mobile-landscape">
             <Link href="/formulario">
-              <Image src={Boton} alt="Cuéntenos sus expectativas." />
+              <Image
+                src={Boton}
+                alt="Cuéntenos sus expectativas."
+                className="w-[300px] "
+              />
             </Link>
           </div>
         </div>
