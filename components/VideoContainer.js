@@ -12,8 +12,33 @@ const VideoContainer = () => {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current
+          .play()
+          .then(() => {
+            requestFullScreen(videoRef.current);
+          })
+          .catch((err) => {
+            console.error('Error trying to play the video: ', err);
+          });
       }
+    }
+  };
+
+  const requestFullScreen = (element) => {
+    if (element.requestFullscreen) {
+      element.requestFullscreen().catch((err) => {
+        console.error('Error trying to enable fullscreen: ', err);
+      });
+    } else if (element.webkitRequestFullscreen) {
+      /* Safari */
+      element.webkitRequestFullscreen().catch((err) => {
+        console.error('Error trying to enable fullscreen on Safari: ', err);
+      });
+    } else if (element.msRequestFullscreen) {
+      /* IE11 */
+      element.msRequestFullscreen().catch((err) => {
+        console.error('Error trying to enable fullscreen on IE11: ', err);
+      });
     }
   };
 
@@ -28,7 +53,24 @@ const VideoContainer = () => {
       videoElement.addEventListener('pause', handlePause);
 
       // Optional: Autoplay the video on load
-      videoElement.play();
+      videoElement
+        .play()
+        .then(() => {
+          // After the video starts playing, request full screen
+          if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen();
+          } else if (videoElement.webkitRequestFullscreen) {
+            /* Safari */
+            videoElement.webkitRequestFullscreen();
+          } else if (videoElement.msRequestFullscreen) {
+            /* IE11 */
+            videoElement.msRequestFullscreen();
+          }
+        })
+        .catch((err) => {
+          // Autoplay was likely prevented by the browser
+          console.log('Autoplay was prevented');
+        });
 
       return () => {
         videoElement.removeEventListener('play', handlePlay);
