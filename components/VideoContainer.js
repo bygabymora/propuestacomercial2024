@@ -80,7 +80,7 @@ const VideoContainer = () => {
   }, []);
 
   return (
-    <RootLayout title="Formulario Propuesta Comercial 2024">
+    <RootLayout title="Propuesta Comercial 2024">
       <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
         <Image
           src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706031027/2_vprbeq.png"
