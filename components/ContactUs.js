@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Banner from '../public/images/banner.svg';
+import Banner from '../public/images/banner.png';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error.js';
 import axios from 'axios';
@@ -106,9 +106,11 @@ const ContactUs = () => {
     <div className=" m-x2 text-center  bg-gray-50 p-4">
       <div className="flex justify-center items-center w-full pt-5 pb-2 leading-tight ">
         <Image
-          src={Banner}
+          src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706038754/Banner_j0ufni.jpg"
           alt="Moraequipos"
-          className="rounded-lg w-[90%] md:w-[50%]"
+          className="rounded-lg w-[90%] md:w-[90%]"
+          width={1200}
+          height={240}
         />
       </div>
 
@@ -192,7 +194,7 @@ const ContactUs = () => {
                 onChange={(e) => setCantidadDeAnalizadores(e.target.value)}
                 value={cantidadDeAnalizadores}
               >
-                <option value="">Seleccione una opción.</option>
+                <option value="">Seleccione una opción...</option>
                 <option value="Menos de 10">Menos de 10</option>
                 <option value="11-30">11-30</option>
                 <option value="31-50">31-50</option>
