@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Banner from '../public/images/banner.png';
 import { toast } from 'react-toastify';
 import { getError } from '../utils/error.js';
 import axios from 'axios';
