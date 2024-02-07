@@ -70,9 +70,9 @@ const VideoContainer = () => {
       <main className="flex flex-col items-center justify-center h-auto md:h-[75vh] lg:h-[80vh] mt-2 md:mt-5">
         <div className="flex justify-center items-center w-full leading-tight sticky top-0 sm:hidden">
           <Image
-            src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706100189/VISI%C3%93N_2024_3_xminsg.png"
+            src="https://res.cloudinary.com/do6oloxvt/image/upload/v1706815543/VISI%C3%93N_2024_10_lxucse.png"
             alt="Moraequipos"
-            className="rounded-lg w-[90%] mb-5"
+            className="rounded-t-lg w-[90%] mb-5 "
             width={600}
             height={320}
           />
